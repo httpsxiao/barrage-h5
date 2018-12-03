@@ -1,4 +1,4 @@
-import BarrageH5 from '../lib/main'
+import BarrageH5 from '../lib/main' // 改成 import BarrageH5 from 'barrage-h5'
 
 const $video = document.getElementById('video')
 const $canvas = document.getElementById('canvas')

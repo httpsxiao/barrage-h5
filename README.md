@@ -1,6 +1,6 @@
 # barrage-h5
 
-基于 canvas 的弹幕 js方法。 并且结合 html 和 node 实战例子，实战内容见 [example](https://github.com/httpsxiao/barrage-h5/example)(html) 和 [server](https://github.com/httpsxiao/barrage-h5/server)(node)。
+基于 canvas 的弹幕 js方法。 并且结合 html 和 node 实战例子，实战内容见 [example](https://github.com/httpsxiao/barrage-h5/tree/master/example)(html) 和 [server](https://github.com/httpsxiao/barrage-h5/tree/master/server)(node)。
 
 ### Usage
 
@@ -29,6 +29,6 @@ default = {
 
 ### example
 
-详细例子见 [example](https://github.com/httpsxiao/barrage-h5/example) 和 [server](https://github.com/httpsxiao/barrage-h5/server) 文件夹
+详细例子见 [example](https://github.com/httpsxiao/barrage-h5/tree/master/example) 和 [server](https://github.com/httpsxiao/barrage-h5/tree/master/server) 文件夹
 
 example 是页面内容， server 是服务器内容
