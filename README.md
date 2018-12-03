@@ -7,7 +7,7 @@
 ```javascript
   const barrageH5 = import('barrage-h5')
 
-  barrageH5(video, canvas, options)
+  barrageH5(video, canvas, options) // video: video DOM， canvas: canvas DOM
 ```
 
 ### options
