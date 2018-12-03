@@ -17,7 +17,14 @@ ws.onopen = () => {
     let res = JSON.parse(e.data)
 
     if (res.type === 'init') {
-      bh5 = new BarrageH5($video, $canvas, { data: res.data })
+      bh5 = new BarrageH5($video, $canvas, {
+        data: res.data,
+        defaultStyle: {
+          color: 'blue',
+          speed: 2,
+          fontSize: 24
+        }
+      })
     } else if (res.type === 'add') {
       bh5.add(res.data)
     }
