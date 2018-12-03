@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>弹幕</title>
+  <style>
+    .main, .send {
+      width: 640px;
+      position: relative;
+      margin: 0 auto;
+    }
+    #canvas {
+      position: absolute;
+    }
+    .send {
+      display: flex;
+      align-items: center;
+    }
+    .send #text {
+      width: 300px;
+      height: 30px;
+      border: 1px solid red;
+    }
+    .send #color {
+      width: 50px;
+      height: 30px;
+    }
+    .send #range {
+      width: 100px;
+      height: 30px;
+      border: 1px solid red;
+    }
+    .send #btn {
+      flex: 1;
+      height: 34px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <div class="main">
+      <canvas id="canvas"></canvas>
+      <video id="video" controls width="640px"></video>
+    </div>
+    <div class="send">
+      <input id="text" type="text" />
+      <input id="color" type="color">
+      <input id="range" type="range" max="40" min="20">
+      <button id="btn">发送弹幕</button>
+    </div>
+  </div>
+</body>
+</html>

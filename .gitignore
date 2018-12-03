@@ -1,4 +1,7 @@
 node_modules
 .vscode
 dist
-assets
+lib
+server/
+dump.rdb
+example/*.mp4

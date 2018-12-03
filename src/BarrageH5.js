@@ -1,29 +1,33 @@
 import Barrage from './Barrage'
 
-export default class BarrageCanvas {
-  constructor (video, canvas, data, options = {}) {
+export default class BarrageH5 {
+  constructor (video, canvas, options = {}) {
     this.video = video
     this.canvas = canvas
-    this.data = data
     this.options = options
+
+    if (!video || !canvas) { return }
     
-    this.canvas.width = video.width
-    this.canvas.height = video.height
+    this.canvas.width = video.width || video.clientWidth
+    this.canvas.height = video.height || video.clientHeight
     this.ctx = canvas.getContext('2d')
 
-    this.barrages = this.data.map(d => new Barrage(d, this))
-    this.render()
+    this.barrages = options.data.map(conf => new Barrage(conf, this)) || []
+    this.start()
   }
-  render () {
-    this.clear()
-    this.renderBarrage()
-
-    requestAnimationFrame(this.render.bind(this))
+  add (conf = {}) {
+    this.barrages.push(new Barrage(conf, this))
   }
   clear () {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
   }
-  renderBarrage () {
+  start () {
+    this.clear()
+    this.drawBarrages()
+
+    requestAnimationFrame(this.start.bind(this))
+  }
+  drawBarrages () {
     let time = this.video.currentTime
 
     this.barrages.forEach(barrage => {
@@ -33,8 +37,7 @@ export default class BarrageCanvas {
           barrage.isInit = true
         }
 
-        barrage.x -= barrage.speed
-        barrage.render()
+        barrage.draw()
 
         if (barrage.x < -barrage.width) {
           barrage.flag = true

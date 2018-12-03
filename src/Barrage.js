@@ -1,22 +1,25 @@
 export default class Barrage {
-  constructor (data, context) {
-    this.value = data.value
-    this.time = data.time
-    this.obj = data
+  constructor (conf, context) {
+    const defaultConf = Object.assign(
+      {},
+      {
+        value: '',
+        time: context.video.currentTime,
+        color: 'red',
+        speed: 1,
+        fontSize: 20
+      },
+      context.options.defaultStyle
+    )
+
     this.context = context
-    this.default = {
-      color: '#e91e63',
-      speed: 1.5,
-      opacity: 0.5,
-      fontSize: 20
-    }
+    this.value = conf.value || defaultConf.value
+    this.time = conf.time || defaultConf.time
+    this.color = conf.color || defaultConf.color
+    this.speed = conf.speed || defaultConf.speed
+    this.fontSize = conf.fontSize || defaultConf.fontSize
   }
   init () {
-    this.color = this.obj.color || this.default.color
-    this.speed = this.obj.speed || this.default.speed
-    this.opacity = this.obj.opacity || this.default.opacity
-    this.fontSize = this.obj.fontSize || this.default.fontSize
-
     let p = document.createElement('p')
     p.style.fontSize = this.fontSize + 'px'
     p.style.position = 'absolute'
@@ -35,7 +38,8 @@ export default class Barrage {
       this.y = this.context.canvas.height - this.fontSize
     }
   }
-  render () {
+  draw () {
+    this.x -= this.speed
     this.context.ctx.font = this.fontSize + 'px Arial'
     this.context.ctx.fillStyle = this.color
     this.context.ctx.fillText(this.value, this.x, this.y)

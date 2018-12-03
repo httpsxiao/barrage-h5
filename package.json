@@ -1,22 +1,40 @@
 {
-  "name": "barrage-canvas",
+  "name": "barrage-h5",
   "version": "1.0.0",
-  "description": "canvas 弹幕",
-  "main": "main.js",
+  "description": "canvas 弹幕的 js 方法",
+  "main": "lib/main.js",
   "scripts": {
-    "dev": "webpack --config webpack.config.js --mode development --watch",
-    "build": "webpack --mode production --process",
+    "dev": "webpack-dev-server --mode development --config webpack.dev.config.js",
+    "example": "npm run dev",
+    "build": "webpack --mode production --config webpack.dev.config.js",
+    "lib": "webpack --mode production --config webpack.lib.config.js",
+    "app": "node ./server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "file": [
+    "lib",
+    "package.json"
+  ],
+  "keywords": [
+    "canvas",
+    "barrage",
+    "redis",
+    "WebSocket"
+  ],
+  "author": "httpsxiao",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "babel-loader": "^8.0.4",
+    "file-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "path": "^0.12.7",
+    "redis": "^2.8.0",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "ws": "^6.1.2"
   }
 }

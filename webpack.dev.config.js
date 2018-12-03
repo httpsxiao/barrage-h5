@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    index: './src/main.js'
+    index: './example/main.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -12,23 +12,34 @@ module.exports = {
   module: {
     rules: [
       {
-        test: '/\.js$/',
+        test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
-        test: '/\.html$/',
+        test: /\.html$/,
         loader: 'html-loader',
         exclude: /node_modules/
-      }
+      },
+      {
+        test: /\.(mp4)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          name:'audios/[name].[ext]',
+          limit:10
+        }
+      } 
     ]
+  },
+  devServer: {
+    stats: 'errors-only'
   },
   resolve: {
     extensions: ['.js', '.json']
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: './src/index.html'
+      template: 'example/index.html'
     })
   ]
 }
