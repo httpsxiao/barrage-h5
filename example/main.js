@@ -21,7 +21,7 @@ ws.onopen = () => {
         data: res.data,
         defaultStyle: {
           color: 'blue',
-          speed: 2,
+          speed: 0.5,
           fontSize: 24
         }
       })

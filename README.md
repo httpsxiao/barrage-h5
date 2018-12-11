@@ -29,6 +29,20 @@ default = {
 
 ### example
 
-详细例子见 [example](https://github.com/httpsxiao/barrage-h5/tree/master/example) 和 [server](https://github.com/httpsxiao/barrage-h5/tree/master/server) 文件夹
+1. 启动 redis
 
-example 是页面内容， server 是服务器内容
+安装 `redis` ，然后执行 `redis-server`
+
+2. 开启服务
+
+`npm run app`
+
+3. 启动页面
+
+在 `example` 文件夹下放入 `video.mp4` 文件，然后执行 `npm run dev`
+
+4. 浏览器打开[http://localhost:8080/](http://localhost:8080/)，测试弹幕如下图
+
+<img src="./example/example.png" width="400px"/>
+
+代码见 [example](https://github.com/httpsxiao/barrage-h5/tree/master/example) 和 [server](https://github.com/httpsxiao/barrage-h5/tree/master/server) 文件夹
